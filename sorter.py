@@ -43,12 +43,16 @@ for key in relationDictionary:
     '''
     if (len(relationDictionary[key]) == 1):
         '''
-        Next it checks to make sure that the key's value exists in the catDictionary.  If it does not, then there
-        is no corresponding name in the categories.xml files and should be skipped.
+        Here is checks to make sure that the parent object is not a child object.  If the parent object is a child
+        object it will ignore it and move on the the next parent object.
         '''
         findkey = relationDictionary.get(key)
         list = relationDictionary.get(findkey[0])
         if key not in list:
+            '''
+            Next it checks to make sure that the key's value exists in the catDictionary.  If it does not, then there
+            is no corresponding name in the categories.xml files and should be skipped.
+            '''
             if (catDictionary.get(key) != None ):
                 #Now that we have gotten to this point, we know that the key is the first word in the catDictionary.
                 first = catDictionary.get(key)
